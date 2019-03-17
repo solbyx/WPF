@@ -4,9 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
+        xmlns:views="clr-namespace:WpfApp.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="WpfApp using MVC"
+        MaxWidth="1200" MaxHeight="600"
+        MinWidth="800" MinHeight="400"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel Name="MainWindowDockPanel">
+        <Menu DockPanel.Dock="Top" Height="26">
+            <MenuItem Header="File">
+                <MenuItem Click="OnMenuExit" Header="Exit" />
+            </MenuItem>
+            <MenuItem Header="Data">
+                <MenuItem Name="Download" Click="OnMenuDataDownload" Header="Download" />
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Click="OnMenuAbout" Header="About" />
+            </MenuItem>
+        </Menu>
+        <ContentControl Name="MainWindowContentControl"></ContentControl>
+    </DockPanel>
 </Window>

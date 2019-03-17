@@ -12,9 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp.Views;
 
 namespace WpfApp
 {
+    /// <inheritdoc cref="Window" />
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -23,6 +25,23 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnMenuAbout(object sender, RoutedEventArgs e)
+        {
+            var parent = (Window)MainWindowDockPanel.Parent;
+            MessageBox.Show(parent,  $"{parent.Title}", parent.Title, MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
+        private void OnMenuExit(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void OnMenuDataDownload(object sender, RoutedEventArgs e)
+        {
+            MainWindowContentControl.Content = new DataDownloadView();
         }
     }
 }
